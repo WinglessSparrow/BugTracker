@@ -30,12 +30,9 @@ namespace BugTracker.UI.Views {
 
         private void passwordBox_PasswordChanged(object sender, RoutedEventArgs e) {
 
-            SecureString pwdTemp = ((PasswordBox)sender).SecurePassword;
-
-            _eventAggregator.Publish(new PasswordChangedEvent(pwdTemp));
-
-            pwdTemp.Dispose();
-
+            //store it in clear text, since I don't really care about the password
+            //since it's beign compared against the hash
+            _eventAggregator.Publish(new PasswordChangedEvent(((PasswordBox)sender).SecurePassword));
         }
     }
 }

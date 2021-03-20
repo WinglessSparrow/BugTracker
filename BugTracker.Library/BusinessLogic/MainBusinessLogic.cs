@@ -2,6 +2,7 @@
 using BugTracker.Library.Models;
 using BugTracker.Model.BusinessLogic;
 using System;
+using System.Diagnostics;
 
 namespace BugTracker.Library.BusinessLogic {
     public class MainBusinessLogic : IBusinessLogic {
@@ -10,9 +11,9 @@ namespace BugTracker.Library.BusinessLogic {
             _dataAccess = dataAccess;
         }
 
-        public bool CheckLoginData(LoginDataModel loginData) {
-            Console.WriteLine("HIII");
-            return true;
+        public string getPasswordHash(string username) {
+
+            return BCrypt.Net.BCrypt.HashPassword("apfel", "$2a$10$HRz42c08/iKLyZBu5/77ye");
         }
     }
 }

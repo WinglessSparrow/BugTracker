@@ -12,13 +12,12 @@ namespace BugTracker.UI.ViewModels {
     public class LoginViewModel : Screen, IHandle<PasswordChangedEvent> {
 
         private ILoginController _loginController;
+        private SecureString _password;
 
         //this to another class and bind from viewModel, since we're (I'm alone) using Stylet
         //but do it later
         public string LoginStatus { get; set; } = "Login Status";
         public string Username { get; set; }
-        public SecureString Password { get; private set; }
-
 
         public LoginViewModel(ILoginController loginController, IEventAggregator eventAggregator) {
             _loginController = loginController;
@@ -28,18 +27,22 @@ namespace BugTracker.UI.ViewModels {
 
         public void Login() {
 
+            Debug.WriteLine("Loging in");
 
+            if (_password != null) {
+                bool loginSuccessfull = _loginController.CheckLogin(new LoginDataModel(_password, Username));
+                _password.Clear();
 
-            bool loginSuccessfull = _loginController.CheckLogin(null);
-            if (loginSuccessfull) {
-                _loginController.GetUser(null);
+                if (loginSuccessfull) {
+                    _loginController.GetUser(null);
+                }
+
             }
         }
 
         //retrieving the password
         public void Handle(PasswordChangedEvent message) {
-            Password = message.Password;
-            message.Dispose();
+            _password = message.Password;
         }
     }
 }

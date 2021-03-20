@@ -7,7 +7,7 @@ using System.Security;
 namespace BugTracker.Library.Models {
     public class LoginDataModel : PropertyChangedBase, IDisposable {
         private SecureString _password;
-        private String _username;
+        private string _username;
 
         public SecureString Password {
             get { return _password; }
@@ -19,15 +19,13 @@ namespace BugTracker.Library.Models {
             private set { }
         }
 
-        public LoginDataModel(SecureString password, String username) {
+        public LoginDataModel(SecureString password, string username) {
             _password = password;
             _username = username;
         }
 
         public void Dispose() {
-            //TODO something else should happen here aswell, I have no clue what thou
-            _password.Dispose();
-            _username = "";
+            _password.Clear();
         }
     }
 }

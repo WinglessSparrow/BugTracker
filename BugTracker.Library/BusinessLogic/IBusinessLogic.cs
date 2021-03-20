@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace BugTracker.Model.BusinessLogic {
     public interface IBusinessLogic {
 
-        bool CheckLoginData(LoginDataModel loginData);
+        string getPasswordHash(string username);
 
     }
 }

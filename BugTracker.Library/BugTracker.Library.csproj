@@ -64,8 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLogic\Controllers\ILoginController.cs" />
-    <Compile Include="BusinessLogic\IBusinessLogic.cs" />
-    <Compile Include="BusinessLogic\IDataSender.cs" />
+    <Compile Include="Exceptions\UserNotFoundException.cs" />
     <Compile Include="Models\IssueModel.cs" />
     <Compile Include="Models\LoginDataModel.cs" />
     <Compile Include="Models\UserModel.cs" />
@@ -75,8 +74,7 @@
     <Compile Include="DataAccess\Interfaces\IIssueAccessHandler.cs" />
     <Compile Include="DataAccess\Interfaces\ILoginHandler.cs" />
     <Compile Include="DataAccess\Interfaces\IUserAccessHandler.cs" />
-    <Compile Include="BusinessLogic\MainBusinessLogic.cs" />
-    <Compile Include="DataAccess\DataRetriever.cs" />
+    <Compile Include="DataAccess\MySQLDataRetriever.cs" />
     <Compile Include="DataAccess\IssueAccessHandler.cs" />
     <Compile Include="DataAccess\LoginHandler.cs" />
     <Compile Include="DataAccess\UserAccessHandler.cs" />

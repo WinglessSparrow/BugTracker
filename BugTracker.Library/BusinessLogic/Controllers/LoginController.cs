@@ -19,9 +19,13 @@ namespace BugTracker.Library.BusinessLogic.Controllers {
 
         public bool CheckLogin(LoginDataModel loginData) {
 
-            string passwordHash = _dataAccess.getPasswordHash(loginData.Username);
+            bool isMatched = false;
+
+            string passwordHash = _dataAccess.GetLoginHandler().getPasswordHash(loginData.Username);
+
             //comparing the password to the hash Value from the DB
-            bool isMatched = BCrypt.Net.BCrypt.Verify(SecureStringToString(loginData.Password), passwordHash);
+            if (passwordHash == null)
+                isMatched = BCrypt.Net.BCrypt.Verify(SecureStringToString(loginData.Password), passwordHash);
 
             //getting rid of the password
             loginData.Dispose();
@@ -29,11 +33,11 @@ namespace BugTracker.Library.BusinessLogic.Controllers {
             return isMatched;
         }
 
-        public UserModel GetUser(LoginDataModel loginData) {
-            Console.WriteLine("GETING USER");
-            return null;
+        public UserModel GetUser(string username) {
+
+            return _dataAccess.GetUserHandler().GetUser(username);
         }
-        private String SecureStringToString(SecureString value) {
+        private string SecureStringToString(SecureString value) {
             IntPtr valuePtr = IntPtr.Zero;
             try {
                 valuePtr = Marshal.SecureStringToGlobalAllocUnicode(value);

@@ -30,11 +30,14 @@ namespace BugTracker.UI.ViewModels {
             Debug.WriteLine("Loging in");
 
             if (_password != null) {
-                bool loginSuccessfull = _loginController.CheckLogin(new LoginDataModel(_password, Username));
+
+                var loginData = new LoginDataModel(_password, Username);
+
+                bool loginSuccessfull = _loginController.CheckLogin(loginData);
                 _password.Clear();
 
                 if (loginSuccessfull) {
-                    _loginController.GetUser(null);
+                    LoginStatus = (_loginController.GetUser(loginData.Username)).Username;
                 }
 
             }

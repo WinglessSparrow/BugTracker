@@ -4,6 +4,5 @@ namespace BugTracker.Controller.Source.Interfaces {
         IIssueAccessHandler GetIssueHandler();
         IUserAccessHandler GetUserHandler();
         ILoginHandler GetLoginHandler();
-        string getPasswordHash(string username);
     }
 }

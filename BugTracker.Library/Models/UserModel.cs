@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace BugTracker.Library.Models {
     public class UserModel {
-        //role : enum
+        //role : enum --> RoleFactory or smth
         //assignedProject : ProjectModel
         private string _firstName;
         private string _surname;
+        private string _username;
 
         public string Firstname {
             get { return _firstName; }
@@ -28,9 +29,18 @@ namespace BugTracker.Library.Models {
             private set { }
         }
 
-        public UserModel(string Firstname, string Surname) {
+        public string Username { get { return _username; } private set { } }
+
+        public UserModel(string Firstname, string Surname, string username) {
             _firstName = Firstname;
             _surname = Surname;
+            _username = username;
+        }
+
+        public static Predicate<UserModel> ByUsername(string username) {
+            return delegate (UserModel userModel) {
+                return userModel.Username == username;
+            };
         }
 
 

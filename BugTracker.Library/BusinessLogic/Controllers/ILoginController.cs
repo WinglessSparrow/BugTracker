@@ -3,6 +3,6 @@
 namespace BugTracker.Model.BusinessLogic.Controllers {
     public interface ILoginController {
         bool CheckLogin(LoginDataModel loginData);
-        UserModel GetUser(LoginDataModel loginData);
+        UserModel GetUser(string username);
     }
 }

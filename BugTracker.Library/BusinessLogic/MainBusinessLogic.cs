@@ -1,6 +1,6 @@
 ﻿using BugTracker.Controller.Source.Interfaces;
+using BugTracker.Library.Models;
 using BugTracker.Model.BusinessLogic;
-using BugTracker.Model.Models;
 using System;
 
 namespace BugTracker.Library.BusinessLogic {

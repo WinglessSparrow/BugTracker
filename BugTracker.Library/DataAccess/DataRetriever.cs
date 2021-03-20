@@ -1,8 +1,5 @@
 ﻿
 using BugTracker.Controller.Source.Interfaces;
-using BugTracker.UI.Models;
-using System;
-using System.Collections.Generic;
 
 namespace BugTracker.Library.DataAccess {
     public class DataRetriever : IDataAccess {

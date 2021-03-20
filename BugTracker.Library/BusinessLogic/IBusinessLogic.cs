@@ -1,5 +1,5 @@
 ﻿using BugTracker.Controller.Source.Interfaces;
-using BugTracker.Model.Models;
+using BugTracker.Library.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

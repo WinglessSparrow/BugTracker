@@ -1,11 +1,5 @@
 ﻿using BugTracker.Controller.Source.Interfaces;
-using BugTracker.Model.Models;
-using BugTracker.UI.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using BugTracker.Library.Models;
 
 namespace DataAccess.temp {
     class LoginHandler : ILoginHandler {

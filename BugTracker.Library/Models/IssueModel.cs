@@ -1,5 +1,5 @@
 ﻿
-namespace BugTracker.UI.Models {
+namespace BugTracker.Library.Models {
     public class IssueModel {
         private string _name;
         private string _description;

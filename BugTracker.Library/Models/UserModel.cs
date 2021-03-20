@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BugTracker.UI.Models {
+namespace BugTracker.Library.Models {
     public class UserModel {
         //role : enum
         //assignedProject : ProjectModel

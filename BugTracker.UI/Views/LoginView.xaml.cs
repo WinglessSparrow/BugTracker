@@ -1,6 +1,10 @@
-﻿using System;
+﻿using BugTracker.UI.Events;
+using Stylet;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -17,8 +21,21 @@ namespace BugTracker.UI.Views {
     /// Interaction logic for LoginView.xaml
     /// </summary>
     public partial class LoginView : Window {
-        public LoginView() {
+
+        private IEventAggregator _eventAggregator;
+        public LoginView(IEventAggregator eventAggregator) {
             InitializeComponent();
+            _eventAggregator = eventAggregator;
+        }
+
+        private void passwordBox_PasswordChanged(object sender, RoutedEventArgs e) {
+
+            SecureString pwdTemp = ((PasswordBox)sender).SecurePassword;
+
+            _eventAggregator.Publish(new PasswordChangedEvent(pwdTemp));
+
+            pwdTemp.Dispose();
+
         }
     }
 }

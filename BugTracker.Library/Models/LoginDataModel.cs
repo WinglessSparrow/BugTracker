@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Stylet;
+using System;
+using System.ComponentModel;
+using System.Runtime.InteropServices;
 using System.Security;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BugTracker.Model.Models {
-    public class LoginDataModel {
+namespace BugTracker.Library.Models {
+    public class LoginDataModel : PropertyChangedBase, IDisposable {
         private SecureString _password;
         private String _username;
 
@@ -23,6 +22,12 @@ namespace BugTracker.Model.Models {
         public LoginDataModel(SecureString password, String username) {
             _password = password;
             _username = username;
+        }
+
+        public void Dispose() {
+            //TODO something else should happen here aswell, I have no clue what thou
+            _password.Dispose();
+            _username = "";
         }
     }
 }

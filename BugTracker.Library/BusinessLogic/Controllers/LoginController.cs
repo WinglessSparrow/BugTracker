@@ -1,9 +1,8 @@
 ﻿
 
+using BugTracker.Library.Models;
 using BugTracker.Model.BusinessLogic;
 using BugTracker.Model.BusinessLogic.Controllers;
-using BugTracker.Model.Models;
-using BugTracker.UI.Models;
 using System;
 
 namespace BugTracker.Library.BusinessLogic.Controllers {

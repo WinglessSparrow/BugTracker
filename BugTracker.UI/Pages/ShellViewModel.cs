@@ -12,13 +12,12 @@ using System;
 namespace BugTracker.UI.Pages {
     public class ShellViewModel : Screen {
 
-
-        public ShellViewModel(IWindowManager wM, ILoginController loginController) {
+        public ShellViewModel(IWindowManager wM, ILoginController loginController, IEventAggregator eventAggregator) {
 
             //ViewModels are instantiated directly, since they are very View specific and shouldn't be exchanged, 
             //the Business Logic and controllers are what could be modified or smth.
 
-            wM.ShowWindow(new LoginViewModel(loginController));
+            wM.ShowWindow(new LoginViewModel(loginController, eventAggregator));
         }
     }
 }

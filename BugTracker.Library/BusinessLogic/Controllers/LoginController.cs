@@ -1,6 +1,7 @@
 ﻿
 
 using BCrypt.Net;
+using BugTracker.Controller.Source.Interfaces;
 using BugTracker.Library.Models;
 using BugTracker.Model.BusinessLogic;
 using BugTracker.Model.BusinessLogic.Controllers;
@@ -14,15 +15,15 @@ using System.Security;
 namespace BugTracker.Library.BusinessLogic.Controllers {
     public class LoginController : ILoginController {
 
-        private IBusinessLogic _businessLogic;
+        private IDataAccess _dataAccess;
 
-        public LoginController(IBusinessLogic businessLogic) {
-            _businessLogic = businessLogic;
+        public LoginController(IDataAccess dataAccess) {
+            _dataAccess = dataAccess;
         }
 
         public bool CheckLogin(LoginDataModel loginData) {
 
-            string passwordHash = _businessLogic.getPasswordHash(loginData.Username);
+            string passwordHash = _dataAccess.getPasswordHash(loginData.Username);
             //comparing the password to the hash Value from the DB
             bool isMatched = BCrypt.Net.BCrypt.Verify(SecureStringToString(loginData.Password), passwordHash);
 

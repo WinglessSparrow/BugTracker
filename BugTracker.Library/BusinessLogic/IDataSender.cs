@@ -7,6 +7,6 @@ using System.Threading.Tasks;
 
 namespace BugTracker.Model.BusinessLogic {
     public interface IDataSender {
-        void SetDataAccess(IDataAccess dataAccess);
+        string getPasswordHash(string username);
     }
 }

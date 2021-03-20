@@ -29,5 +29,10 @@ namespace BugTracker.Library.DataAccess {
         public IUserAccessHandler GetUserHandler() {
             return _userAccessHandler;
         }
+
+        public string getPasswordHash(string username) {
+
+            return BCrypt.Net.BCrypt.HashPassword("apfel", "$2a$10$HRz42c08/iKLyZBu5/77ye");
+        }
     }
 }

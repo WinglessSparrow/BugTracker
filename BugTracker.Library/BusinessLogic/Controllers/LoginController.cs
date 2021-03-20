@@ -3,12 +3,8 @@
 using BCrypt.Net;
 using BugTracker.Controller.Source.Interfaces;
 using BugTracker.Library.Models;
-using BugTracker.Model.BusinessLogic;
 using BugTracker.Model.BusinessLogic.Controllers;
-using DevOne.Security.Cryptography.BCrypt;
 using System;
-using System.ComponentModel;
-using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Security;
 

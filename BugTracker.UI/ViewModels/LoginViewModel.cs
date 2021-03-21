@@ -4,6 +4,7 @@ using Stylet;
 using System;
 using System.Security;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace BugTracker.UI.ViewModels {
     public class LoginViewModel : PropertyChangedBase {

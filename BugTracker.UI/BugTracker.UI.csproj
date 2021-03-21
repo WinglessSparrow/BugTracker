@@ -109,14 +109,15 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\Icons\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\BugTracker.Library\BugTracker.Library.csproj">
       <Project>{fbd4f9cf-aac6-41c2-81bd-893a8bb45a25}</Project>
       <Name>BugTracker.Library</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\locked-padlock.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

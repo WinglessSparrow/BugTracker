@@ -1,7 +1,4 @@
-﻿
-
-using BCrypt.Net;
-using BugTracker.Controller.Source.Interfaces;
+﻿using BugTracker.Controller.Source.Interfaces;
 using BugTracker.Library.Models;
 using BugTracker.Model.BusinessLogic.Controllers;
 using System;
@@ -24,7 +21,7 @@ namespace BugTracker.Library.BusinessLogic.Controllers {
             string passwordHash = _dataAccess.GetLoginHandler().getPasswordHash(loginData.Username);
 
             //comparing the password to the hash Value from the DB
-            if (passwordHash == null)
+            if (passwordHash != null)
                 isMatched = BCrypt.Net.BCrypt.Verify(SecureStringToString(loginData.Password), passwordHash);
 
             //getting rid of the password

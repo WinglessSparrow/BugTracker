@@ -64,7 +64,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLogic\Controllers\ILoginController.cs" />
-    <Compile Include="Exceptions\UserNotFoundException.cs" />
     <Compile Include="Models\IssueModel.cs" />
     <Compile Include="Models\LoginDataModel.cs" />
     <Compile Include="Models\UserModel.cs" />

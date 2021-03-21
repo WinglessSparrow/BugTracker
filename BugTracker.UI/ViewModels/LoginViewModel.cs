@@ -1,33 +1,34 @@
 ﻿using BugTracker.Library.Models;
 using BugTracker.Model.BusinessLogic.Controllers;
-using BugTracker.UI.Events;
 using Stylet;
 using System;
-using System.Diagnostics;
 using System.Security;
-using System.Windows;
 using System.Windows.Controls;
 
 namespace BugTracker.UI.ViewModels {
-    public class LoginViewModel : Screen, IHandle<PasswordChangedEvent> {
+    public class LoginViewModel : PropertyChangedBase {
 
         private ILoginController _loginController;
         private SecureString _password;
 
         //this to another class and bind from viewModel, since we're (I'm alone) using Stylet
         //but do it later
-        public string LoginStatus { get; set; } = "Login Status";
+        private string _loginStatus;
+        public string LoginStatus {
+            get { return _loginStatus; }
+            set {
+                SetAndNotify(ref _loginStatus, value);
+                this.NotifyOfPropertyChange(nameof(this.LoginStatus));
+            }
+        }
         public string Username { get; set; }
 
-        public LoginViewModel(ILoginController loginController, IEventAggregator eventAggregator) {
+        public LoginViewModel(ILoginController loginController) {
             _loginController = loginController;
-
-            eventAggregator.Subscribe(this);
+            LoginStatus = "Login Status";
         }
 
         public void Login() {
-
-            Debug.WriteLine("Loging in");
 
             if (_password != null) {
 
@@ -37,15 +38,16 @@ namespace BugTracker.UI.ViewModels {
                 _password.Clear();
 
                 if (loginSuccessfull) {
-                    LoginStatus = (_loginController.GetUser(loginData.Username)).Username;
+                    var lVar = _loginController.GetUser(loginData.Username);
+                    LoginStatus = lVar.Username;
+                } else {
+                    LoginStatus = "Login Failed";
                 }
-
             }
         }
 
-        //retrieving the password
-        public void Handle(PasswordChangedEvent message) {
-            _password = message.Password;
+        public void ChangePasswordEvent(object sender, EventArgs e) {
+            _password = ((PasswordBox)sender).SecurePassword;
         }
     }
 }

@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="BugTracker.UI.Views.MainView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:viewmodels="clr-namespace:BugTracker.UI.ViewModels"
+        d:DataContext="{d:DesignInstance viewmodels:LoginViewModel}" mc:Ignorable="d" d:DesignHeight="800"
+        d:DesignWidth="1200">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <Style x:Key="TabItem" TargetType="Button">
+                <Setter Property="Height" Value="130" />
+                <Setter Property="FontSize" Value="30" />
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid Background="AliceBlue">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="130" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Orientation="Vertical">
+            <Image Height="130" Width="130" Source="../Resources/Icons/PlaceHolder.png" />
+            <Button Style="{StaticResource TabItem}">Home</Button>
+            <Button Style="{StaticResource TabItem}">Issues</Button>
+            <Button Style="{StaticResource TabItem}">Projects</Button>
+            <Button Style="{StaticResource TabItem}">Settings</Button>
+            <Button Style="{StaticResource TabItem}">Logout</Button>
+        </StackPanel>
+
+
+
+        <!--<TabControl Grid.Column="1" TabStripPlacement="Left">
+            <TabItem Header="General">
+                <Label Content="Content goes here..." />
+            </TabItem>
+            <TabItem Header="Security" />
+            <TabItem Header="Details" />
+        </TabControl>-->
+    </Grid>
+</UserControl>

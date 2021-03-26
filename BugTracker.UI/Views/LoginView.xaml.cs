@@ -11,11 +11,5 @@ namespace BugTracker.UI.Views {
         public LoginView() {
             InitializeComponent();
         }
-
-        private void Grid_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e) {
-            if (e.LeftButton == MouseButtonState.Pressed) {
-                DragMove();
-            }
-        }
     }
 }

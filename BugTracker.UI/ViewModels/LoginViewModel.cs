@@ -9,7 +9,7 @@ using System.Windows.Input;
 namespace BugTracker.UI.ViewModels {
     public class LoginViewModel : PropertyChangedBase {
 
-        private ILoginController _loginController;
+        private readonly ILoginController _loginController;
         private SecureString _password;
 
         //this to another class and bind from viewModel, since we're (I'm alone) using Stylet
